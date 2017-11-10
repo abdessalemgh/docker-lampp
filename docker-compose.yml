@@ -1,0 +1,41 @@
+version: "2"
+services:
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports :
+     - '8080:80'
+    links:
+     - mysql:db
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+     - ./data/mysql/:/var/lib/mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_DATABASE=magento
+    ports:
+     - "3306:3306"
+
+  magento:
+    image: lavoweb/php-7.0
+    container_name: php7
+    expose:
+     - 80
+     - 443
+    ports:
+      - "80:80"
+    volumes:
+     - ./html:/var/www/html
+    labels:
+     - "traefik.port=80"
+     - "traefik.backend=magento"
+     - "traefik.frontend.rule=Host:magento.lavoweb.net"
+     - "traefik.acme.domains=magento.lavoweb.net"
+    links:
+     - mysql:database
+    depends_on:
+     - mysql

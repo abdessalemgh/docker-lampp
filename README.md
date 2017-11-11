@@ -16,6 +16,7 @@ It can be used with any other php7.0 project, this image could replace your xwam
 #setup
 
 	-RUN 'docker-compose up -D'
+	-change html folder permissions: RUN 'chmod -R 755 html/'
 
 #use
 

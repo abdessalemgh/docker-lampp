@@ -4,6 +4,7 @@ It can be used with any other php7.0 project, this image could replace your xwam
 
 
 #Requirments:
+
 	-Docker
 	-Docker compose
 
@@ -11,6 +12,7 @@ It can be used with any other php7.0 project, this image could replace your xwam
 
 	-MYSQL_DATABASE=database_name
 	-MYSQL_ROOT_PASSWORD=My_password  //Set phpmyadmin and MySql server root password
+
 #setup
 
 	-RUN 'docker-compose up -D'

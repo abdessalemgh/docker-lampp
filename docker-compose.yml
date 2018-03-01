@@ -16,7 +16,7 @@ services:
      - ./data/mysql/:/var/lib/mysql
     environment:
      - MYSQL_ROOT_PASSWORD=root
-     - MYSQL_DATABASE=magento
+     - MYSQL_DATABASE=dataBase_Name
     ports:
      - "3306:3306"
 
